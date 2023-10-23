@@ -1,6 +1,6 @@
 # Fabrica-Software-Salvame 📁
 
-## Equipo A 🧑‍💻👩‍💻
+## Equipo A 👩‍💻👩‍💻
 - Benites Pardavé, Eder Gustavo
 - Cueto Salazar, Sebastián Antonio
 - Loli Collantes, Nilton Daniel

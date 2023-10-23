@@ -1,5 +1,5 @@
 # Fabrica-Software-Salvame 📁
-![Banner Proyectos Fábrica de Software](https://github.com/IEEE-CS-UNMSM/Fabrica-Software-Salvame/assets/105573438/ccfb1036-16a2-4113-b850-73d212ff5e23)
+![Copia de Baner](https://github.com/IEEE-CS-UNMSM/Fabrica-Software-Salvame/assets/105573438/f157f018-3a41-4985-8b9c-382344791ab5)
 
 
 ## Equipo A 👩‍💻👩‍💻

@@ -1,4 +1,6 @@
 # Fabrica-Software-Salvame 📁
+![Banner Proyectos Fábrica de Software](https://github.com/IEEE-CS-UNMSM/Fabrica-Software-Salvame/assets/105573438/ccfb1036-16a2-4113-b850-73d212ff5e23)
+
 
 ## Equipo A 👩‍💻👩‍💻
 - Benites Pardavé, Eder Gustavo

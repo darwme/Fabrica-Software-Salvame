@@ -1,0 +1,73 @@
+@use "../utilities/variables" as v;
+
+.container {
+  .nav-bar {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid v.$brown;
+
+    .nav-bar_botones {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    img {
+      width: 11.7rem;
+      height: 10.6rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: v.$white;
+      font-family: "Poppins";
+      font-size: 2.4rem;
+      font-weight: 600;
+      line-height: normal;
+    }
+  }
+}
+
+.nav-bar_botones {
+  button {
+    margin: 0.4rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 19rem;
+    height: 6rem;
+    padding: 0.3rem 1rem;
+    border-radius: 1rem;
+    background: v.$light-green;
+    border: none;
+    font-size: 2rem;
+    &:hover {
+      background: darken($color: v.$light-green, $amount: 10);
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 85%;
+    .nav-bar {
+      padding: 0.5rem 5rem;
+      .nav-bar_botones {
+        width: 40%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: right;
+      }
+
+      button {
+        margin: 0 2rem;
+        width: 19rem;
+        height: 6rem;
+        padding: 0.3rem 1rem;
+      }
+    }
+  }
+}

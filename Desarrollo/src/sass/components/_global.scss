@@ -1,0 +1,72 @@
+@use "../utilities/variables" as v;
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background: v.$white;
+}
+
+h1 {
+  font-size: 9rem;
+  font-family: v.$main-font;
+}
+
+p {
+  font-size: 1.5rem;
+}
+
+a{
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+a {
+  text-align: center;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background: v.$white;
+}
+
+h1 {
+  font-size: 9rem;
+  font-family: v.$main-font;
+}
+
+p {
+  font-size: 1.5rem;
+}
+
+h1,
+h2,
+h3,
+a {
+  text-align: center;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}

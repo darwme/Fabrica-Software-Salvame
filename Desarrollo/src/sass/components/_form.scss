@@ -1,0 +1,235 @@
+@use "../utilities/variables" as v;
+
+.sec-login {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  top: 30%;
+}
+.sec-singIn {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  top: 12%;
+}
+
+.singIn-container {
+  width: 100%;
+  max-width: 700px;
+  height: 100%;
+  max-height: 550px;
+  display: flex;
+  border-radius: 16px;
+  background: v.$white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.login-container {
+  width: 100%;
+  max-width: 600px;
+  height: 100%;
+  max-height: 400px;
+  display: flex;
+  border-radius: 16px;
+  background: v.$white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.item,
+.itemtwo {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.item {
+  flex: 30;
+  background-color: #36320a;
+  border-radius: 16px 0 0 16px;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+.item p {
+  font-size: 3.2rem;
+  border-left: 2px solid white;
+  padding: 10px;
+  font-family: "Megrim", "cursive";
+  margin: 0;
+}
+
+.itemtwo {
+  flex: 70;
+  background-color: #fff519;
+  border-radius: 0 16px 16px 0;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.itemtwo button {
+  background-color: #36320a;
+  color: white;
+  margin-top: 20px;
+}
+.itemtwo h2 {
+  font-size: 3.2rem;
+}
+
+.item a,
+.item button,
+.itemtwo a,
+.itemtwo button {
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.item a {
+  background-color: #36320a;
+  border: 2px solid white;
+  border-radius: 8px;
+  color: #ffffff;
+  margin: 0;
+}
+.overlay {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.2
+  ); /* Color de fondo oscuro semi-transparente */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999; /* Asegura que esté por encima de otros elementos */
+}
+
+.itemtwo input {
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  padding: 10px;
+  margin: 7px 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+.input-box {
+  width: 100%;
+  position: relative;
+  font-size: 1.5rem;
+}
+
+.input-box i {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+}
+.inactive {
+  display: none;
+}
+.condition {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 1.4rem;
+}
+.condition input {
+  width: 15px;
+}
+.condition label {
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+  gap: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.date {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+}
+.date select {
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+select {
+  font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+  }
+
+  .item,
+  .itemtwo {
+    border-radius: 16px;
+    width: 100%;
+  }
+  .sec-login,
+  .sec-singIn {
+    top: 10%;
+  }
+
+  .login-container,
+  .singIn-container {
+    max-width: 100%;
+    border-radius: 0;
+    height: auto;
+  }
+
+  .item,
+  .itemtwo {
+    border-radius: 0;
+    padding: 10px;
+  }
+
+  .item p {
+    font-size: 2rem;
+    padding: 5px;
+  }
+
+  .item a,
+  .item button,
+  .itemtwo a,
+  .itemtwo button {
+    font-size: 1rem;
+    padding: 5px 10px;
+  }
+
+  .date {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .date select {
+    padding: 5px 10px;
+    font-size: 1rem;
+  }
+
+  .condition {
+    font-size: 1rem;
+  }
+
+  .condition input {
+    width: 10px;
+  }
+}

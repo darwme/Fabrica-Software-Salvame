@@ -1,0 +1,130 @@
+@use "../utilities/variables" as v;
+
+.oso {
+  display: flex;
+  flex-direction: column;
+  margin: 5rem auto;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.oso-img {
+  position: relative;
+  background: linear-gradient(
+    138deg,
+    #438c6c 7.14%,
+    #abca83 36.12%,
+    #7cc67b 63.91%
+  );
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  width: 30rem;
+  height: 45rem;
+  border-radius: 35%;
+  img {
+    /* max-width: 40rem; */
+    width: 100%;
+    max-height: 48.3rem;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .pin1 {
+    width: 105px;
+    height: 112px;
+    position: absolute;
+    top: 5%;
+    left: 82%;
+  }
+  .pin2 {
+    width: 105px;
+    height: 112px;
+    position: absolute;
+    top: 25%;
+    left: 2%;
+  }
+  .pin3 {
+    width: 105px;
+    height: 112px;
+    border-radius: 112px;
+    border: 2.719px solid v.$white;
+    position: absolute;
+    top: 64%;
+    left: 100%;
+  }
+  .pin4 {
+    width: 105px;
+    height: 112px;
+    position: absolute;
+    top: 83%;
+    left: 7%;
+  }
+}
+
+.oso-text {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    margin: 0;
+    text-align: center;
+    color: v.$brown;
+    font-weight: 400;
+  }
+  p {
+    color: black;
+    width: 100%;
+    text-align: center;
+    font-family: "Forum";
+    font-size: 4rem;
+    text-transform: capitalize;
+  }
+}
+
+@media (min-width: 1440px) {
+  .oso {
+    flex-direction: row;
+    margin: 5rem auto;
+    justify-content: space-around;
+    align-items: center;
+    .oso-text {
+      width: 50%;
+      h1 {
+        font-size: 15rem;
+      }
+      p {
+        font-size: 4.5rem;
+      }
+    }
+    .oso-img {
+      width: 40rem;
+      height: 58rem;
+      border-radius: 35%;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .containe.oso {
+    width: 90%;
+    padding: 1rem;
+  }
+  .oso {
+    flex-direction: row;
+    margin: 5rem auto;
+    justify-content: space-between;
+    align-items: center;
+    .oso-text {
+      width: 50%;
+      p {
+        font-size: 3.5rem;
+        width: auto;
+      }
+      h1 {
+        font-size: 9.5rem;
+      }
+    }
+  }
+}

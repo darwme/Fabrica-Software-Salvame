@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sálvame</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Forum&family=Megrim&family=Poppins:wght@400;600&family=Readex+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../build/css/normalize.css" />
+    <link rel="stylesheet" href="../build/css/Inicio.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body id="body">
+    <header>
+      <div class="container">
+        <nav class="nav-bar">
+          <a href="index.html"><img src="../src/img/logo.png" alt="logo" /></a>
+          <div class="nav-bar_botones">
+            <button id="btnSignUp">Cerrar Sesión</button>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="container oso">
+        <div class="oso-text-sesion">
+          <h1>Sálvame</h1>
+          <h2>
+            ¡Hola! <br> USUARIO
+          </h2>
+        </div>
+        <div class="oso-img">
+          <img src="../src/img/main.png" alt="main" />
+          <img class="pin1" src="../src/img/1.png" />
+          <img class="pin2" src="../src/img/2.png" />
+          <img class="pin3" src="../src/img/3.png" />
+          <img class="pin4" src="../src/img/4.png" />
+        </div>
+      </section>
+      <section class="container options">
+        <div>
+          <img src="../src/img/Group 15.png" alt="">
+        </div>
+        <div class="container-options">
+          <div>
+            <div >
+              <a href="#" class="container-links">
+                <img src="../src/icons/relizar-alerta.png" alt="relizar alerta" />
+                <p>Realizar Alerta</p>
+              </a>
+            </div>
+            <div>
+              <a href="#" class="container-links">
+                <img src="../src/icons/ver-alerta.png" alt="ver alerta" />
+                <p>Ver Alertas</p>
+              </a>
+            </div>
+          </div>
+          <div>
+            <div>
+              <a href="#" class="container-links">
+                <img src="../src/icons/mis-informes.png" alt="mis informes" />
+                <p>Informes</p>
+              </a>
+            </div>
+            <div>
+              <a href="#" class="container-links">
+                <img
+                  src="../src/icons/postular-a-moderador.png"
+                  alt="postular a moderador"
+                />
+                <p>Mis Altertas</p>
+              </a>
+            </div>
+          </div>
+        </div>
+
+  
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container footer-content">
+        <div class="contributors">
+          <img src="../src/img/logo.png" alt="logo" />
+          <ul>
+            <li>
+              <p>Benites Pardavé, Eder Gustavo</p>
+            </li>
+            <li>
+              <p>Cueto Salazar, Sebastián Antonio</p>
+            </li>
+            <li>
+              <p>Loli Collantes, Nilton Daniel</p>
+            </li>
+            <li>
+              <p>Mendoza Bermejo, Darwin Karls</p>
+            </li>
+            <li>
+              <p>Pineda Silupu, Kevin Jair</p>
+            </li>
+            <li>
+              <p>Rojas Palacios, Dante Arhon</p>
+            </li>
+          </ul>
+          <div class="social-media-icons">
+            <div class="hover">
+              <a href="">
+                <img src="../src/icons/Group (1).svg" alt="" />
+              </a>
+            </div>
+            <div class="hover">
+              <a href="">
+                <img src="../src/icons/Vector.svg" alt="" />
+              </a>
+            </div>
+            <div class="hover">
+              <a href="">
+                <img src="../src/icons/Group.svg" alt="" />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="about">
+          <h3>Nosotros</h3>
+          <a href=""><p>¿Por qué suscribirme a Sálvame?</p></a>
+        </div>
+        <div class="information">
+          <h3>Información</h3>
+          <a href=""><p>Ver Alertas</p></a>
+        </div>
+        <div class="join">
+          <h3>Únete</h3>
+          <a href=""><p>Postular a Moderador</p></a>
+        </div>
+      </div>
+    </footer>
+    <section class="sec-login inactive" id="sec-login">
+      <form class="login-container" id="form" type="submit">
+        <div class="item">
+          <p>Sálvame</p>
+          <a href="./index.html">Inicio</a>
+        </div>
+        <div class="itemtwo">
+          <h2>Iniciar sesión</h2>
+          <div class="input-box">
+            <input
+              type="text"
+              placeholder="Correo electrónico"
+              name="correo"
+              required
+            />
+            <i class="bx bx-envelope"></i>
+          </div>
+
+          <div class="input-box">
+            <input
+              type="password"
+              placeholder="Contraseña"
+              name="password"
+              required
+            />
+            <i class="bx bxs-lock-alt"></i>
+          </div>
+
+          <button type="submit" id="ingresar">Ingresar</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="sec-singIn inactive" id="sec-singIn">
+      <form class="singIn-container" id="formSingin">
+        <div class="item">
+          <p>Sálvame</p>
+          <a href="./index.html">Inicio</a>
+        </div>
+        <div class="itemtwo">
+          <h2>Regístrate</h2>
+          <div class="input-box">
+            <input
+              type="text"
+              placeholder="Correo electrónico"
+              name="correo"
+              required
+            />
+            <i class="bx bx-envelope"></i>
+          </div>
+
+          <div class="input-box">
+            <input
+              type="password"
+              placeholder="Contraseña"
+              name="password"
+              required
+            />
+            <i class="bx bxs-lock-alt"></i>
+          </div>
+
+          <div class="input-box">
+            <input
+              type="password"
+              placeholder="Confirmar contraseña"
+              name="confirm_password"
+              required
+            />
+            <i class="bx bxs-lock-alt"></i>
+          </div>
+
+          <div class="input-box">
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              placeholder="Nombre"
+              required
+            />
+            <i class="bx bx-user"></i>
+          </div>
+
+          <div class="input-box">
+            <input
+              type="text"
+              id="apellido"
+              name="apellido"
+              placeholder="Apellido"
+              required
+            />
+            <i class="bx bx-user"></i>
+          </div>
+
+          <div class="date">
+            <select id="dia" name="dia" required>
+              <option value="">día</option>
+            </select>
+
+            <select id="mes" name="mes" required>
+              <option value="">mes</option>
+            </select>
+
+            <select id="ano" name="año" required>
+              <option value="">año</option>
+            </select>
+          </div>
+
+          <div class="condition">
+            <label for=""
+              ><input type="checkbox" required />He leído y acepto los términos
+              y condiciones de "Sálvame"</label
+            >
+          </div>
+          <div class="condition">
+            <label for=""
+              ><input type="checkbox" required />Quiero recibir notificaciones
+              de las alertas e información relevante de la página
+            </label>
+          </div>
+
+          <button type="submit" id="registrarme">Registrarme</button>
+        </div>
+      </form>
+    </section>
+
+    <script src="build/js/app.js"></script>
+    <script src="build/js/form.js"></script>
+  </body>
+</html>

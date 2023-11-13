@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sálvame</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Forum&family=Megrim&family=Poppins:wght@400;600&family=Readex+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../build/css/normalize.css" />
+    <link rel="stylesheet" href="../build/css/app.css" />
+  </head>
+  <body id="body">
+    <header>
+      <div class="container">
+        <nav class="nav-bar">
+          <a href="index.html"><img src="../src/img/logo.png" alt="logo" /></a>
+          <div class="nav-bar_botones">
+            <button id="btnSignUp">Cerrar Sesión</button>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main class="container main-map">
+      <div class="welcome-alert">
+        <h2>¡Bienvenido al módulo de alerta!</h2>
+      </div>
+
+      <section class="map-section">
+        <div id="map"></div>
+        <div class="mostrar-ubicacion">
+            <div class="mostrar-ubicacion__titulo">
+                <h3>Ubicación</h3>
+                <!-- aca se cambiara -->
+                <p>Camarquilla prueba</p>
+            </div>
+            <div class="mostrar-ubicacion__capturar">
+                <button class="btn-capturar">+</button>
+                <p>CAPTURAR</p>
+            </div>
+            <div class="mostrar-ubicacion__distancia">
+                <h3>Distancia</h3>
+                <!-- aca se cambiara -->
+                <p>1.5km prueba</p>
+            </div>
+        </div>
+      </section>
+
+      <button class="btn-siguiente">Siguiente</button>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-content">
+        <div class="contributors">
+          <img src="../src/img/logo.png" alt="logo" />
+          <ul>
+            <li>
+              <p>Benites Pardavé, Eder Gustavo</p>
+            </li>
+            <li>
+              <p>Cueto Salazar, Sebastián Antonio</p>
+            </li>
+            <li>
+              <p>Loli Collantes, Nilton Daniel</p>
+            </li>
+            <li>
+              <p>Mendoza Bermejo, Darwin Karls</p>
+            </li>
+            <li>
+              <p>Pineda Silupu, Kevin Jair</p>
+            </li>
+            <li>
+              <p>Rojas Palacios, Dante Arhon</p>
+            </li>
+          </ul>
+          <div class="social-media-icons">
+            <div class="hover">
+              <a href="">
+                <img src="../src/icons/Group (1).svg" alt="" />
+              </a>
+            </div>
+            <div class="hover">
+              <a href="">
+                <img src="../src/icons/Vector.svg" alt="" />
+              </a>
+            </div>
+            <div class="hover">
+              <a href="">
+                <img src="../src/icons/Group.svg" alt="" />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="about">
+          <h3>Nosotros</h3>
+          <a href=""><p>¿Por qué suscribirme a Sálvame?</p></a>
+        </div>
+        <div class="information">
+          <h3>Información</h3>
+          <a href=""><p>Ver Alertas</p></a>
+        </div>
+        <div class="join">
+          <h3>Únete</h3>
+          <a href=""><p>Postular a Moderador</p></a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../build/js/map.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script>
+  </body>
+</html>

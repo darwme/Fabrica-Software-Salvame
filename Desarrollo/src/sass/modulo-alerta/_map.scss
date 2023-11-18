@@ -31,6 +31,9 @@
   border-radius: 0 0 20px 20px;
   .mostrar-ubicacion__titulo {
     width: 25rem;
+    h3{
+      margin-bottom: 1rem;
+    }
   }
   .mostrar-ubicacion__capturar {
     // position: absolute;
@@ -38,6 +41,13 @@
   }
   .mostrar-ubicacion__distancia{
     width: 25rem;
+    h3{
+      margin-bottom: 3rem;
+      margin-top: 1rem;
+    }
+    p{
+      margin-bottom: 3rem;
+    }
   }
   .btn-capturar {
     background: linear-gradient(271deg, #c4fba3 7.64%, #5bda59 90.68%);
@@ -58,12 +68,14 @@
     font-family: Poppins;
     font-size: 2.5rem;
     font-weight: 700;
+    margin: 0 0 1rem 0;
   }
   h3 {
     color: #454545;
     font-family: Poppins;
     font-size: 2.5rem;
     font-weight: 500;
+    margin: 1.5rem;
   }
 }
 

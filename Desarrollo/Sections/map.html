@@ -34,8 +34,8 @@
         <div class="mostrar-ubicacion">
             <div class="mostrar-ubicacion__titulo">
                 <h3>Ubicación</h3>
-                <!-- aca se cambiara -->
-                <p>Camarquilla prueba</p>
+                <p class="lat"></p>
+                <p class="lng"></p>
             </div>
             <div class="mostrar-ubicacion__capturar">
                 <button class="btn-capturar">+</button>
@@ -43,8 +43,7 @@
             </div>
             <div class="mostrar-ubicacion__distancia">
                 <h3>Distancia</h3>
-                <!-- aca se cambiara -->
-                <p>1.5km prueba</p>
+                <p>0km</p>
             </div>
         </div>
       </section>
@@ -110,6 +109,6 @@
     </footer>
 
     <script src="../build/js/map.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&libraries=geometry&callback=iniciarMap" async defer></script>
   </body>
 </html>

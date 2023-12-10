@@ -91,4 +91,10 @@
     margin: 0 auto;
     margin-bottom: 2rem;
     border-radius: 8px;
+    font-family: Poppins;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken($color: v.$light-green, $amount: 5);
+    }
   }

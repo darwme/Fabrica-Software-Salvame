@@ -10,12 +10,101 @@
       href="https://fonts.googleapis.com/css2?family=Forum&family=Megrim&family=Poppins:wght@400;600&family=Readex+Pro&display=swap"
       rel="stylesheet"
     />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../build/css/normalize.css" />
-    <link rel="stylesheet" href="../build/css/Inicio.css" />
+    <link rel="stylesheet" href="../build/css/Alertar.css" />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
+
+    <style>
+      .secuencia {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        position: relative;
+      }
+
+      .secuencia div div {
+        margin: 10px;
+        padding: 20px;
+        background-color: #C4FBA3;
+        position: relative;
+      }
+
+      .secuencia div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+      }
+
+      .secuencia div:not(:last-child) > div::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        margin-top: -1px;
+        width: 60px;
+        height: 2px;
+        background-color: #C4FBA3;
+      }
+
+
+
+
+
+
+
+
+
+
+#active{
+    background-color: #5BDA59;
+}
+.subir-img {
+            text-align: center;
+            margin-top: 20px;
+            width: 600px;
+            margin: 0 auto;
+            height: 400px;
+            background-image: url(../src/img/pattern\ 4.png);
+            border: 1px solid rgb(71, 71, 71);
+            border-radius: 8px;
+            background-color: rgb(156, 149, 149);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+  
+        }
+
+
+        #preview {
+    width: 600px;
+    height: 400px;
+    object-fit: contain; /* Esto asegura que la imagen mantenga su relación de aspecto */
+    border: 1px solid rgb(71, 71, 71);
+    border-radius: 8px;
+    background-color: rgb(156, 149, 149);
+    
+
+}
+
+        #custom-upload-button {
+            cursor: pointer;
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+    </style>
   </head>
   <body id="body">
     <header>
@@ -29,62 +118,82 @@
       </div>
     </header>
     <main>
-      <section class="container oso">
-        <div class="oso-text-sesion">
-          <h1>Sálvame</h1>
-          <h2>
-            ¡Hola! <br> USUARIO
-          </h2>
-        </div>
-        <div class="oso-img">
-          <img src="../src/img/main.png" alt="main" />
-          <img class="pin1" src="../src/img/1.png" />
-          <img class="pin2" src="../src/img/2.png" />
-          <img class="pin3" src="../src/img/3.png" />
-          <img class="pin4" src="../src/img/4.png" />
-        </div>
-      </section>
-      <section class="container options">
-        <div>
-          <img src="../src/img/Group 15.png" alt="">
-        </div>
-        <div class="container-options">
-          <div>
-            <div >
-              <a href="./Alerta.html" class="container-links">
-                <img src="../src/icons/relizar-alerta.png" alt="relizar alerta" />
-                <p>Realizar Alerta</p>
-              </a>
+        <div class="secuencia">
+            <div class="intermedio">
+                <div id="active">
+                    <h2>1</h2>
+                </div>
+                <p>Evidencia</p>
             </div>
-            <div>
-              <a href="#" class="container-links">
-                <img src="../src/icons/ver-alerta.png" alt="ver alerta" />
-                <p>Ver Alertas</p>
-              </a>
+        
+            <div class="intermedio">
+                <div>
+                    <h2>2</h2>
+                </div>
+                <p>Información</p>
             </div>
-          </div>
-          <div>
-            <div>
-              <a href="#" class="container-links">
-                <img src="../src/icons/mis-informes.png" alt="mis informes" />
-                <p>Informes</p>
-              </a>
+        
+            <div class="intermedio">
+                <div>
+                    <h2>3</h2>
+                </div>
+                <p>Ubicación</p>
             </div>
-            <div>
-              <a href="#" class="container-links">
-                <img
-                  src="../src/icons/postular-a-moderador.png"
-                  alt="postular a moderador"
-                />
-                <p>Mis Altertas</p>
-              </a>
+            <div class="no-line">
+                <div>
+                    <h2>4</h2>
+                </div>
+                <p>Tipo</p>
             </div>
-          </div>
         </div>
+        
+        <section class="subir-img">
+            <h1>Suelte el archivo aquí <br>o</h1>
+            
+            <form id="upload-form">
+                <label for="file-input" id="custom-upload-button">Capturar</label>
+                <input type="file" id="file-input" accept="image/*" style="display: none;" />
+            </form>
+    
+            <div id="preview-container" style="display: none;">
+                <img id="preview"  alt="Vista previa de la imagen" />
+            </div>
+    
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    var fileInput = document.getElementById('file-input');
+                    var previewImage = document.getElementById('preview');
+                    var uploadLabel = document.getElementById('custom-upload-button');
+                    var dropText = document.querySelector('.subir-img h1');
+                    var previewContainer = document.getElementById('preview-container');
+            
+                    fileInput.addEventListener('change', function () {
+                        var file = fileInput.files[0];
+            
+                        if (file) {
+                            var reader = new FileReader();
+            
+                            reader.onload = function (e) {
+                                previewImage.src = e.target.result;
+            
+                                // Ocultar el texto y el botón cuando la imagen se carga
+                                dropText.style.display = 'none';
+                                uploadLabel.style.display = 'none';
 
-  
-      </section>
+                                // Mostrar el contenedor de vista previa
+                                previewContainer.style.display = 'block';
+                            };
+            
+                            reader.readAsDataURL(file);
+                        }
+                    });
+                });
+            </script>
+        </section>
     </main>
+    <div class="nav-bar_botones vamos-button">
+      <button id="Vamos">Siguiente</button>
+    </div>
     <footer class="footer">
       <div class="container footer-content">
         <div class="contributors">
@@ -265,7 +374,7 @@
         </div>
       </form>
     </section>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="build/js/app.js"></script>
     <script src="build/js/form.js"></script>
   </body>

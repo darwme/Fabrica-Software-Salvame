@@ -1,66 +1,69 @@
-const button = document.querySelector('.mostrar-ubicacion');
-const lat = document.querySelector('.mostrar-ubicacion__titulo .lat');
-const lng = document.querySelector('.mostrar-ubicacion__titulo .lng');
-const distanciaLugar = document.querySelector('.mostrar-ubicacion__distancia p');
-
-let coord = { lat: -12.054357, lng: -77.084362 }; // Coordenadas de UNMSM
 let map;
 let marker;
+const distanciaLugar = document.querySelector('.mostrar-ubicacion__distancia p');
+const lat = document.querySelector('.mostrar-ubicacion__titulo .lat');
+const lng = document.querySelector('.mostrar-ubicacion__titulo .lng');
+let userCoords = { lat: 0, lng: 0 };
 
-lat.textContent = `Lat: ${coord.lat}`;
-lng.textContent = `Lng: ${coord.lng}`;
+const capturarButton = document.querySelector('.btn-capturar');
 
 function iniciarMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 5,
-    center: coord
-  });
+    const coord = { lat: -12.054357, lng: -77.084362 }; // Coordenadas de UNMSM
 
-  marker = new google.maps.Marker({
-    position: coord,
-    map: map
-  });
+    // Inicializar mapa
+    map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 5,
+        center: coord,
+    });
 
-  button.addEventListener('click', () => {
-    if (navigator.geolocation) {
-      console.log('Geolocation is supported!');
-      navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
-        const userCoords = {
-          lat: latitude,
-          lng: longitude
+    // Inicializar marker
+    marker = new google.maps.Marker({
+        position: coord,
+        map: map,
+        draggable: true,
+    });
+
+    map.addListener('click', (evt) => {
+        console.log(evt);
+        marker.setPosition(evt.latLng);
+        updateMarkerPosition(marker.getPosition());
+    });
+
+    capturarButton.addEventListener('click', () => {
+        const currentPosition = marker.getPosition(); // Posición actual del marker "Para Cueto"
+        console.log('Current position:', currentPosition);
+        updateMarkerPosition(currentPosition);
+        calculateDistance(currentPosition);
+    });
+
+    updateMarkerPosition(coord);
+}
+
+// Actualiza las coordenadas en pantalla
+function updateMarkerPosition(latLng) {
+    lat.textContent = `Lat: ${latLng.lat().toFixed(6)}`;
+    lng.textContent = `Lng: ${latLng.lng().toFixed(6)}`;
+}
+
+// Calcula la distancia entre el marker y la ubicación actual del usuario
+function calculateDistance() {
+    const distancia = google.maps.geometry.spherical.computeDistanceBetween(
+        new google.maps.LatLng(marker.getPosition().lat(), marker.getPosition().lng()),
+        new google.maps.LatLng(userCoords.lat, userCoords.lng)
+    );
+    distanciaLugar.textContent = `${(distancia / 1000).toFixed(2)} km`;
+}
+
+// Obtener la ubucación actual del usuario
+if (navigator.geolocation) {
+
+    navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
+        userCoords = {
+            lat: latitude,
+            lng: longitude
         };
+    });
 
-        console.log(userCoords);
-
-        if (marker) {
-          marker.setPosition(userCoords);
-          map.setCenter(userCoords);
-          map.setZoom(15);
-
-          // Calcula la distancia entre la ubicación actual y las coordenadas del lugar
-          const distancia = google.maps.geometry.spherical.computeDistanceBetween(
-            new google.maps.LatLng(coord.lat, coord.lng),
-            new google.maps.LatLng(userCoords.lat, userCoords.lng)
-          );
-          console.log(distancia);
-
-          distanciaLugar.textContent = `${(distancia / 1000).toFixed(2)} km`;
-
-          // nombreLugar.textContent = `Lat: ${userCoords.lat} Lng: ${userCoords.lng}`;
-
-          lat.textContent = `Lat: ${userCoords.lat}`;
-          lng.textContent = `Lng: ${userCoords.lng}`;
-
-        } else {
-          console.log('El marcador no está definido.');
-        }
-
-      }, () => {
-        console.log('Error in the geolocation service.');
-      });
-
-    } else {
-      console.log('Geolocation is not supported for this Browser/OS version yet.');
-    }
-  });
+} else {
+    console.log('Geolocation is not supported for this Browser/OS version yet.');
 }

@@ -2,6 +2,10 @@ create database proyecto_salvame;
 
 use proyecto_salvame;
 
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'spideyforever';
+FLUSH PRIVILEGES;
+
+
 
 -- Crear una tabla para perfil_usuario
 CREATE TABLE perfil_usuario (
@@ -109,3 +113,33 @@ CREATE TABLE alerta (
   FOREIGN KEY (idHistorialA) REFERENCES historial_alerta(idHistorialA),
   FOREIGN KEY (idAnimal) REFERENCES animal(idAnimal)
 );
+
+
+INSERT INTO perfil_usuario (rol) VALUES
+  ('Administrador'),
+  ('Usuario Basico'),
+  ('Usuario Especial');
+
+
+
+CREATE PROCEDURE GetAlertsInfo()
+BEGIN
+    SELECT 
+        a.idAlerta AS AlertNumber,
+        COALESCE(aa.fechaAlerta, a.fechaAlerta) AS FechaPublicacion,
+        ha.tipoAlerta AS TipoAlerta,
+        ha.estatus AS EstadoAlerta
+    FROM 
+        alerta a
+        LEFT JOIN alerta_anonima aa ON a.idAlerta = aa.idAlerta
+        INNER JOIN historial_alerta ha ON ha.idHistorialA = a.idHistorialA
+    UNION
+    SELECT 
+        aa.idAlerta AS AlertNumber,
+        aa.fechaAlerta AS FechaPublicacion,
+        ha.tipoAlerta AS TipoAlerta,
+        ha.estatus AS EstadoAlerta
+    FROM 
+        alerta_anonima aa
+        INNER JOIN historial_alerta ha ON ha.idHistorialA = aa.idHistorialA;
+END 

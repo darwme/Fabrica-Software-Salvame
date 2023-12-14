@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sálvame</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Forum&family=Megrim&family=Poppins:wght@400;600&family=Readex+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../build/css/normalize.css" />
+    <link rel="stylesheet" href="../build/css/Inicio.css" />
+    <link rel="stylesheet" href="../build/css/mis-alertas.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body id="body">
+    <header>
+      <div class="container">
+        <nav class="nav-bar">
+          <a href="index.html"><img src="../src/img/logo.png" alt="logo" /></a>
+          <div class="nav-bar_botones">
+            <button id="btnSignUp">Cerrar Sesión</button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+
+    <main>
+      <section>
+        <div>
+          <h1>Mis Alertas</h1>
+        </div>
+
+
+    <table id="alertsTable">
+        <thead>
+            <tr>
+                <th>Alerta</th>
+                <th>Revisado</th>
+                <th>Aceptado</th>
+                <th>Rechazado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Las alertas se insertarán aquí -->
+        </tbody>
+    </table>
+       
+  
+      </section>
+    </main>
+
+
+    <footer class="footer">
+      <div class="container footer-content">
+        <div class="contributors">
+          <img src="../src/img/logo.png" alt="logo" />
+          <ul>
+            <li>
+              <p>Benites Pardavé, Eder Gustavo</p>
+            </li>
+            <li>
+              <p>Cueto Salazar, Sebastián Antonio</p>
+            </li>
+            <li>
+              <p>Loli Collantes, Nilton Daniel</p>
+            </li>
+            <li>
+              <p>Mendoza Bermejo, Darwin Karls</p>
+            </li>
+            <li>
+              <p>Pineda Silupu, Kevin Jair</p>
+            </li>
+            <li>
+              <p>Rojas Palacios, Dante Arhon</p>
+            </li>
+          </ul>
+          <div class="social-media-icons">
+            <div class="hover">
+              <a href="">
+                <img src="../src/icons/Group (1).svg" alt="" />
+              </a>
+            </div>
+            <div class="hover">
+              <a href="">
+                <img src="../src/icons/Vector.svg" alt="" />
+              </a>
+            </div>
+            <div class="hover">
+              <a href="">
+                <img src="../src/icons/Group.svg" alt="" />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="about">
+          <h3>Nosotros</h3>
+          <a href=""><p>¿Por qué suscribirme a Sálvame?</p></a>
+        </div>
+        <div class="information">
+          <h3>Información</h3>
+          <a href=""><p>Ver Alertas</p></a>
+        </div>
+        <div class="join">
+          <h3>Únete</h3>
+          <a href=""><p>Postular a Moderador</p></a>
+        </div>
+      </div>
+    </footer>
+    <section class="sec-login inactive" id="sec-login">
+      <form class="login-container" id="form" type="submit">
+        <div class="item">
+          <p>Sálvame</p>
+          <a href="./index.html">Inicio</a>
+        </div>
+        <div class="itemtwo">
+          <h2>Iniciar sesión</h2>
+          <div class="input-box">
+            <input
+              type="text"
+              placeholder="Correo electrónico"
+              name="correo"
+              required
+            />
+            <i class="bx bx-envelope"></i>
+          </div>
+
+          <div class="input-box">
+            <input
+              type="password"
+              placeholder="Contraseña"
+              name="password"
+              required
+            />
+            <i class="bx bxs-lock-alt"></i>
+          </div>
+
+          <button type="submit" id="ingresar">Ingresar</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="sec-singIn inactive" id="sec-singIn">
+      <form class="singIn-container" id="formSingin">
+        <div class="item">
+          <p>Sálvame</p>
+          <a href="./index.html">Inicio</a>
+        </div>
+        <div class="itemtwo">
+          <h2>Regístrate</h2>
+          <div class="input-box">
+            <input
+              type="text"
+              placeholder="Correo electrónico"
+              name="correo"
+              required
+            />
+            <i class="bx bx-envelope"></i>
+          </div>
+
+          <div class="input-box">
+            <input
+              type="password"
+              placeholder="Contraseña"
+              name="password"
+              required
+            />
+            <i class="bx bxs-lock-alt"></i>
+          </div>
+
+          <div class="input-box">
+            <input
+              type="password"
+              placeholder="Confirmar contraseña"
+              name="confirm_password"
+              required
+            />
+            <i class="bx bxs-lock-alt"></i>
+          </div>
+
+          <div class="input-box">
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              placeholder="Nombre"
+              required
+            />
+            <i class="bx bx-user"></i>
+          </div>
+
+          <div class="input-box">
+            <input
+              type="text"
+              id="apellido"
+              name="apellido"
+              placeholder="Apellido"
+              required
+            />
+            <i class="bx bx-user"></i>
+          </div>
+
+          <div class="date">
+            <select id="dia" name="dia" required>
+              <option value="">día</option>
+            </select>
+
+            <select id="mes" name="mes" required>
+              <option value="">mes</option>
+            </select>
+
+            <select id="ano" name="año" required>
+              <option value="">año</option>
+            </select>
+          </div>
+
+          <div class="condition">
+            <label for=""
+              ><input type="checkbox" required />He leído y acepto los términos
+              y condiciones de "Sálvame"</label
+            >
+          </div>
+          <div class="condition">
+            <label for=""
+              ><input type="checkbox" required />Quiero recibir notificaciones
+              de las alertas e información relevante de la página
+            </label>
+          </div>
+
+          <button type="submit" id="registrarme">Registrarme</button>
+        </div>
+      </form>
+    </section>
+
+    <script src="build/js/app.js"></script>
+    <script src="build/js/form.js"></script>
+
+    <script>
+      // Function to fetch and populate data
+      async function fetchAlerts() {
+          try {
+              const response = await fetch('/api/getAlerts'); // Adjust the URL to match your server route
+              const data = await response.json();
+              
+              const tableBody = document.querySelector('#alertTable tbody');
+  
+              // Loop through the data and create table rows
+              data.forEach(alert => {
+                  const row = document.createElement('tr');
+                  row.innerHTML = `
+                      <td>${alert.alertID}</td>
+                      <td>${alert.description}</td>
+                      <!-- Add more table cells for additional data -->
+                  `;
+                  tableBody.appendChild(row);
+              });
+          } catch (error) {
+              console.error(error);
+          }
+      }
+  
+      // Call the function when the page loads
+      window.addEventListener('load', fetchAlerts);
+  </script>
+  
+
+
+  </body>
+</html>

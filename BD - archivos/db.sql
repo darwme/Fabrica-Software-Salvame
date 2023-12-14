@@ -5,33 +5,48 @@ use proyecto_salvame;
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'spideyforever';
 FLUSH PRIVILEGES;
 
-
-
 -- Crear una tabla para perfil_usuario
 CREATE TABLE perfil_usuario (
-  idPerfilUsuario int PRIMARY KEY auto_increment,
-  rol VARCHAR(30) NOT NULL
+  idPerfilUsuario INT PRIMARY KEY AUTO_INCREMENT,
+  rol ENUM('Basico', 'Moderador', 'Administrador') NOT NULL
 );
 
+INSERT INTO perfil_usuario(rol) VALUES ('Basico');
+INSERT INTO perfil_usuario(rol) VALUES ('Basico');
+INSERT INTO perfil_usuario(rol) VALUES ('Basico');
 
 
 -- Crear una tabla para usuario_basico
 CREATE TABLE usuario_basico (
-  idUsuarioBasico int primary key auto_increment,
-  idPerfilUsuario int,
+  idPerfilUsuario INT PRIMARY KEY AUTO_INCREMENT,
   nombres VARCHAR(30) NOT NULL,
   apellidos VARCHAR(30) NOT NULL,
-  correo VARCHAR(50),
-  contraseña varchar(50),
+  dni VARCHAR(8) UNIQUE NOT NULL,
+  correo VARCHAR(50) UNIQUE NOT NULL,
+  contraseña varchar(50) NOT NULL,
   fechaNac DATE NOT NULL,
   FOREIGN KEY (idPerfilUsuario) REFERENCES perfil_usuario(idPerfilUsuario)
 );
 
+INSERT INTO usuario_basico (nombres, apellidos, dni, correo, contraseña, fechaNac) VALUES
+  ('Darwin Karls', 'Mendoza Bermejo', '77354147', 'darw.mendz@gmail.com', '123456', '2000-01-01');
+
+-- Primer registro
+INSERT INTO usuario_basico (nombres, apellidos, dni, correo, contraseña, fechaNac) VALUES
+  ('María Tan', 'González Pérez', '54872369', 'maria.g@gmail.com', 'password123', '1995-03-15');
+
+-- Segundo registro
+INSERT INTO usuario_basico (nombres, apellidos, dni, correo, contraseña, fechaNac) VALUES
+  ('Juan Ful', 'Martínez López', '71583426', 'juan.m@gmail.com', 'securepwd', '1992-09-22');
+
+
 
 -- Crear una tabla para usuario_especial
 CREATE TABLE usuario_especial (
-  nroDocumento varchar(10) PRIMARY KEY,
-  idPerfilUsuario int,
+  idPerfilUsuario INT PRIMARY KEY AUTO_INCREMENT,
+  correo VARCHAR(255) NOT NULL UNIQUE,
+  tipoDocumento VARCHAR(20) NOT NULL,
+  nroDocumento VARCHAR(20) NOT NULL UNIQUE,
   nombres VARCHAR(30) NOT NULL,
   apellidos VARCHAR(30) NOT NULL,
   direccion VARCHAR(30),
@@ -40,14 +55,12 @@ CREATE TABLE usuario_especial (
   departamento VARCHAR(30) NOT NULL,
   genero VARCHAR(30),
   telefono VARCHAR(30),
-  correo VARCHAR(50) NOT NULL,
   contraseña varchar(50),
   fechaNac DATE NOT NULL,
   imgDNI BLOB,
   imgCertiONG BLOB,
   FOREIGN KEY (idPerfilUsuario) REFERENCES perfil_usuario(idPerfilUsuario)
 );
-
 
 -- Crear una tabla para animal
 CREATE TABLE animal (
@@ -72,15 +85,52 @@ CREATE TABLE ubicacion (
   departamento VARCHAR(30)
 );
 
+-- Primer registro
+INSERT INTO ubicacion (codigoPostal, longitud, latitud, altitud, direccion, provincia, departamento)
+VALUES (12345, 45.678901, -67.890123, 100.567890, 'Calle Principal 123', 'Provincia A', 'Departamento X');
+
+-- Segundo registro
+INSERT INTO ubicacion (codigoPostal, longitud, latitud, altitud, direccion, provincia, departamento)
+VALUES (54321, 34.567890, -78.901234, 200.678901, 'Avenida Central 456', 'Provincia B', 'Departamento Y');
+
+-- Tercer registro
+INSERT INTO ubicacion (codigoPostal, longitud, latitud, altitud, direccion, provincia, departamento)
+VALUES (67890, 12.345678, -45.678901, 150.123456, 'Calle Secundaria 789', 'Provincia A', 'Departamento X');
+
+-- Cuarto registro
+INSERT INTO ubicacion (codigoPostal, longitud, latitud, altitud, direccion, provincia, departamento)
+VALUES (23456, -23.456789, 56.789012, 300.234567, 'Calle Norte 101', 'Provincia C', 'Departamento Z');
+
+-- Quinto registro
+INSERT INTO ubicacion (codigoPostal, longitud, latitud, altitud, direccion, provincia, departamento)
+VALUES (78901, 67.890123, -12.345678, 180.901234, 'Avenida Este 789', 'Provincia D', 'Departamento W');
+
+
+
+CREATE TABLE historial_alerta (
+  idHistorialA INT PRIMARY KEY AUTO_INCREMENT,
+  tipoAlerta ENUM('Anonimo', 'Normal') NOT NULL,
+  estatus ENUM('Sin Revisar', 'Revisado', 'Aceptado', 'Rechazado') NOT NULL
+);
+
+-- Primer registro
+INSERT INTO historial_alerta (tipoAlerta, estatus) VALUES ('Normal', 'Sin Revisar');
+
+-- Segundo registro
+INSERT INTO historial_alerta (tipoAlerta, estatus) VALUES ('Anonimo', 'Revisado');
+
+-- Tercer registro
+INSERT INTO historial_alerta (tipoAlerta, estatus) VALUES ('Normal', 'Aceptado');
+
+-- Cuarto registro
+INSERT INTO historial_alerta (tipoAlerta, estatus) VALUES ('Normal', 'Rechazado');
+
+-- Quinto registro
+INSERT INTO historial_alerta (tipoAlerta, estatus) VALUES ('Anonimo', 'Sin Revisar');
+
 
 
 -- Crear una tabla para historial_alerta
-CREATE TABLE historial_alerta (
-  idHistorialA int PRIMARY KEY auto_increment,
-  tipoAlerta varchar(30),
-  estatus VARCHAR(20) NOT NULL
-);
-
 create table alerta_anonima(
   idAlerta int PRIMARY KEY,
   codigoPostal int NOT NULL,
@@ -108,38 +158,47 @@ CREATE TABLE alerta (
   descripcionAnimal VARCHAR(30),
   descripcionHechos VARCHAR(30),
   imgEvidencia VARCHAR(50) ,
-  FOREIGN KEY (nroDocumento) REFERENCES usuario_especial(nroDocumento),
+  FOREIGN KEY (nroDocumento) REFERENCES usuario_basico(dni),
   FOREIGN KEY (codigoPostal) REFERENCES ubicacion(codigoPostal),
   FOREIGN KEY (idHistorialA) REFERENCES historial_alerta(idHistorialA),
   FOREIGN KEY (idAnimal) REFERENCES animal(idAnimal)
 );
 
+-- Primer registro
+INSERT INTO alerta (nroDocumento, codigoPostal, idHistorialA, fechaAlerta, horaAlerta, descripcionAnimal, descripcionHechos, imgEvidencia)
+VALUES ('77354147', 12345, 1, '2023-12-15', '2023-12-15 10:30:00', 'Gato', 'Incidente en la calle', 'imagen1.jpg');
 
-INSERT INTO perfil_usuario (rol) VALUES
-  ('Administrador'),
-  ('Usuario Basico'),
-  ('Usuario Especial');
+-- Segundo registro
+INSERT INTO alerta (nroDocumento, codigoPostal, idHistorialA, fechaAlerta, horaAlerta, descripcionAnimal, descripcionHechos, imgEvidencia)
+VALUES ('54872369', 54321, 2, '2023-12-14', '2023-12-14 15:45:00', 'Perro', 'Encontrado en el parque', 'imagen2.jpg');
+
+-- Tercer registro
+INSERT INTO alerta (nroDocumento, codigoPostal, idHistorialA, fechaAlerta, horaAlerta, descripcionAnimal, descripcionHechos, imgEvidencia)
+VALUES ('71583426', 67890, 3, '2023-12-13', '2023-12-13 08:15:00', 'Gato', 'Desaparecido desde ayer', 'imagen3.jpg');
+
+-- Cuarto registro
+INSERT INTO alerta (nroDocumento, codigoPostal, idHistorialA, fechaAlerta, horaAlerta, descripcionAnimal, descripcionHechos, imgEvidencia)
+VALUES ('77354147', 12345, 4, '2023-12-12', '2023-12-12 14:20:00', 'Perro', 'Accidente en la calle', 'imagen4.jpg');
+
+-- Quinto registro
+INSERT INTO alerta (nroDocumento, codigoPostal, idHistorialA, fechaAlerta, horaAlerta, descripcionAnimal, descripcionHechos, imgEvidencia)
+VALUES ('54872369', 78901, 5, '2023-12-11', '2023-12-11 11:55:00', 'Gato', 'Encontrado en el parque', 'imagen5.jpg');
 
 
 
-CREATE PROCEDURE GetAlertsInfo()
+DELIMITER //
+CREATE PROCEDURE GetNormalAlerts()
 BEGIN
-    SELECT 
-        a.idAlerta AS AlertNumber,
-        COALESCE(aa.fechaAlerta, a.fechaAlerta) AS FechaPublicacion,
-        ha.tipoAlerta AS TipoAlerta,
-        ha.estatus AS EstadoAlerta
-    FROM 
+    SELECT
+        a.fechaAlerta AS FechaAlerta,
+        a.idAlerta AS IDAlerta,
+        CASE WHEN ha.tipoAlerta = 'Normal' THEN ha.estatus ELSE NULL END AS Estatus
+    FROM
         alerta a
-        LEFT JOIN alerta_anonima aa ON a.idAlerta = aa.idAlerta
-        INNER JOIN historial_alerta ha ON ha.idHistorialA = a.idHistorialA
-    UNION
-    SELECT 
-        aa.idAlerta AS AlertNumber,
-        aa.fechaAlerta AS FechaPublicacion,
-        ha.tipoAlerta AS TipoAlerta,
-        ha.estatus AS EstadoAlerta
-    FROM 
-        alerta_anonima aa
-        INNER JOIN historial_alerta ha ON ha.idHistorialA = aa.idHistorialA;
+    INNER JOIN
+        historial_alerta ha ON a.idHistorialA = ha.idHistorialA
+    WHERE
+        ha.tipoAlerta = 'Normal';
 END 
+//DELIMITER ;
+

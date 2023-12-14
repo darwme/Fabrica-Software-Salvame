@@ -9,3 +9,5 @@ export const getAlerts = async (req, res) => {
         res.status(500).send('Error al obtener las alertas');
     }
 };
+
+

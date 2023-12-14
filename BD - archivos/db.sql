@@ -21,7 +21,7 @@ CREATE TABLE usuario_basico (
   idPerfilUsuario INT PRIMARY KEY AUTO_INCREMENT,
   nombres VARCHAR(30) NOT NULL,
   apellidos VARCHAR(30) NOT NULL,
-  dni VARCHAR(8) UNIQUE NOT NULL,
+  dni VARCHAR(8) UNIQUE,
   correo VARCHAR(50) UNIQUE NOT NULL,
   contraseña varchar(50) NOT NULL,
   fechaNac DATE NOT NULL,

@@ -3,6 +3,7 @@ import express from 'express';
 import register from './routes/register.routes.js';
 import login from './routes/login.routes.js';
 import alertsRoutes from './routes/api/index.routes.js';
+import informesRouter from './routes/informes.routes.js';
 import path from 'path';
 
 import { engine } from 'express-handlebars';
@@ -38,6 +39,8 @@ app.get('/login', (req, res) => {
     res.render('login');
 });
 
+app.use('/informes', informesRouter);
+
 // Ruta para acceder a mis-alertas.html en la carpeta estática
 app.get('/:id/', (req, res) => {
     // Asegúrate de que la ruta al archivo es absoluta
@@ -52,6 +55,7 @@ app.get('/:id/mis-alertas', (req, res) => {
     const filePath = path.join(__dirname, '../public', 'Sections', 'user', 'mis-alertas.html');
     res.sendFile(filePath);
 });
+
 
 app.use('/api', alertsRoutes);
 app.use(register);

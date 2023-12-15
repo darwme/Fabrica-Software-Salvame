@@ -70,8 +70,36 @@ CREATE TABLE animal (
   familia VARCHAR(30) NOT NULL,
   especie VARCHAR(30) NOT NULL,
   genero VARCHAR(20),
-  descripcion VARCHAR(200) NOT NULL
+  descripcion VARCHAR(200) NOT NULL,
+  codigoPostalUbicacion INT NOT NULL
 );
+
+ALTER TABLE animal
+ADD COLUMN codigoPostalUbicacion INT NOT NULL,
+ADD FOREIGN KEY (codigoPostalUbicacion) REFERENCES ubicacion(codigoPostal);
+
+-- Agrega la restricción CHECK a la columna especie
+ALTER TABLE animal
+ADD CONSTRAINT chk_especie
+CHECK (especie IN ('Aves', 'Mamíferos', 'Reptiles', 'Invertebrados', 'Anfibios', 'Caza Furtiva', 'Animales Domésticos'));
+
+
+-- Insertar datos en la tabla animal
+INSERT INTO animal (nombreCientifico, nombreComun, familia, especie, genero, descripcion, codigoPostalUbicacion)
+VALUES ('Parus major', 'Carbonero Común', 'Paridae', 'Aves', 'Parus', 'Ave pequeña y activa con colores llamativos.', 12345);
+
+INSERT INTO animal (nombreCientifico, nombreComun, familia, especie, genero, descripcion, codigoPostalUbicacion)
+VALUES ('Panthera leo', 'León', 'Felidae', 'Mamíferos', 'Panthera', 'Majestuoso felino africano conocido por su melena.', 54321);
+
+INSERT INTO animal (nombreCientifico, nombreComun, familia, especie, genero, descripcion, codigoPostalUbicacion)
+VALUES ('Python regius', 'Pitón Real', 'Pythonidae', 'Reptiles', 'Python', 'Serpiente no venenosa con patrón de color impresionante.', 67890);
+
+INSERT INTO animal (nombreCientifico, nombreComun, familia, especie, genero, descripcion, codigoPostalUbicacion)
+VALUES ('Apis mellifera', 'Abeja', 'Apidae', 'Invertebrados', 'Apis', 'Importante polinizador vital para la flora.', 23456);
+
+INSERT INTO animal (nombreCientifico, nombreComun, familia, especie, genero, descripcion, codigoPostalUbicacion)
+VALUES ('Bufo bufo', 'Sapo Común', 'Bufonidae', 'Anfibios', 'Bufo', 'Anfibio con piel rugosa y preferencia por ambientes húmedos.', 78901);
+
 
 
 -- Crear una tabla para ubicacion
@@ -202,3 +230,28 @@ BEGIN
 END 
 //DELIMITER ;
 
+-- Crear procedimiento almacenado
+DELIMITER //
+
+CREATE PROCEDURE VisualizarInforme(
+  IN nombreCientificoParam VARCHAR(30),
+  IN nombreComunParam VARCHAR(30),
+  IN departamentoParam VARCHAR(30),
+  IN provinciaParam VARCHAR(30)
+)
+BEGIN
+  -- Consulta principal
+  SELECT
+    a.*,
+    u.departamento,
+    u.provincia
+  FROM
+    animal a
+    INNER JOIN ubicacion u ON a.codigoPostalUbicacion = u.codigoPostal
+  WHERE
+    (nombreCientificoParam IS NULL OR a.nombreCientifico = nombreCientificoParam)
+    AND (nombreComunParam IS NULL OR a.nombreComun = nombreComunParam)
+    AND (departamentoParam IS NULL OR u.departamento = departamentoParam)
+    AND (provinciaParam IS NULL OR u.provincia = provinciaParam);
+END 
+//DELIMITER ;

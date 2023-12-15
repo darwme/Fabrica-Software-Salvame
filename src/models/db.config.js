@@ -9,5 +9,4 @@ export const pool = createPool({
     database: 'proyecto_salvame'
 })
 
-const result = pool.query('select * from alerta');
-console.log(result);
+export default pool;
